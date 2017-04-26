@@ -2,6 +2,19 @@ import os
 import SendTest_File
 import re
 
+#不知为什么，有什么会出现wlan0消失的情况
+os.system('sudo ifconfig wlan0 up')
+
+
+#查询wifi连接状态
+k = os.popen("sudo wpa_cli status")
+k = k.read()
+wifi_name = re.findall('ssid=(.*?)\n',k,re.S)
+if wifi_name:
+	wifi_name = wifi_name[1]
+	print(wifi_name)
+else:
+	print('wifi未连接！')
 
 os.chdir('/')
 file_name = '2017-04-13'
