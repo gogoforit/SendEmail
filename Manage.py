@@ -18,6 +18,8 @@ def query_wifi_status():
 		print(wifi_name)
 	else:
 		print('wifi未连接！')
+	return wifi_status	
+
 #把所有没有发送的文件列出来
 def list_all_files():
 	last_list = []
@@ -44,7 +46,7 @@ def compressFile_sendEmail(name):
 
 	if isExists:
 		os.chdir('/')
-		command_mv_file = 'sudo mv ' + file_name + ' ~/SignInfo'
+		command_mv_file = 'sudo mv ' + file_name + ' home/pi/SignInfo'
 		os.system(command_mv_file)
 		command_cd_host = '/home/pi/SignInfo'
 		os.chdir(command_cd_host)
@@ -58,5 +60,14 @@ def compressFile_sendEmail(name):
 		print('文件已转移！')
 
 if __name__ == '__main__':
-	query_wifi_status()
-	list_all_files()
+	while True:
+		status = query_wifi_status()
+		if status == True:
+			file_list = list_all_files()
+			for each in file_list:
+				compressFile_sendEmail(each)
+		else:
+			pass	
+
+
+
