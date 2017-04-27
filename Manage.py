@@ -10,11 +10,16 @@ os.system('sudo ifconfig wlan0 up')
 k = os.popen("sudo wpa_cli status")
 k = k.read()
 wifi_name = re.findall('ssid=(.*?)\n',k,re.S)
+wifi_status = false
 if wifi_name:
 	wifi_name = wifi_name[1]
+	wifi_status = true
 	print(wifi_name)
 else:
 	print('wifi未连接！')
+
+
+
 
 os.chdir('/')
 file_name = '2017-04-13'
