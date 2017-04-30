@@ -11,6 +11,7 @@ def send_email(file_path,file_name,the_time):
 	sender_list = ['wangxinyuan_sign@aliyun.com','wangxinyuan_sign1@aliyun.com','wangxinyuan_sign2@aliyun.com','wangxinyuan_sign3@aliyun.com','wangxinyuan_sign4@aliyun.com']
 	random_sender = random.sample(sender_list,1)
 	random_sender = random_sender[0]
+	#random_sender = 'wangxinyuan_sign@aliyun.com'
 	my_sender= random_sender #发件人邮箱账号，为了后面易于维护，所以写成了变量
 	my_user='715157026@qq.com' #收件人邮箱账号，为了后面易于维护，所以写成了变量
 	my_user2 = 'wangxinyuan_info@aliyun.com'
@@ -56,3 +57,5 @@ def send_email(file_path,file_name,the_time):
 
 	except smtplib.SMTPException:
 	    print("Error: 无法发送邮件")
+	    print("准备重发！")
+	    send_email(file_path,file_name,the_time)
