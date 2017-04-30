@@ -42,9 +42,10 @@ def compressFile_sendEmail(name):
 	file_name = name
 
 	isExists = os.path.exists(file_name)
+	command_transfer = '/home/pi/SignInfo/' + file_name
+	isTransfer = os.path.exists(command_transfer)
 
-
-	if isExists:
+	if isExists and isTransfer == False:
 		os.chdir('/')
 		command_mv_file = 'sudo mv ' + file_name + ' home/pi/SignInfo'
 		os.system(command_mv_file)

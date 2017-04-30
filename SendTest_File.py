@@ -7,7 +7,7 @@ from email.mime.multipart import MIMEMultipart
 from email.header import Header
 
 def send_email(file_path,file_name,the_time):
-	my_sender='wangxinyuan_sign@aliyun.com' #发件人邮箱账号，为了后面易于维护，所以写成了变量
+	my_sender='wangxinyuan_sign2@aliyun.com' #发件人邮箱账号，为了后面易于维护，所以写成了变量
 	my_user='715157026@qq.com' #收件人邮箱账号，为了后面易于维护，所以写成了变量
 	my_user2 = 'wangxinyuan_info@aliyun.com'
 	#file_path = ''
@@ -43,7 +43,7 @@ def send_email(file_path,file_name,the_time):
 
 	try:
 	    server = smtplib.SMTP("smtp.aliyun.com", 25)  # 发件人邮箱中的SMTP服务器，端口是25
-	    server.login(my_sender, "wsx19961021")
+	    server.login(my_sender, "wangxinyuan2017")
 
 	    server.sendmail(my_sender, my_user, message.as_string())
 	    print("1邮件发送成功")
