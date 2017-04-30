@@ -1,13 +1,17 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
+import random
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.header import Header
 
 def send_email(file_path,file_name,the_time):
-	my_sender='wangxinyuan_sign2@aliyun.com' #发件人邮箱账号，为了后面易于维护，所以写成了变量
+	sender_list = ['wangxinyuan_sign@aliyun.com','wangxinyuan_sign1@aliyun.com','wangxinyuan_sign2@aliyun.com','wangxinyuan_sign3@aliyun.com','wangxinyuan_sign4@aliyun.com']
+	random_sender = random.sample(sender_list,1)
+	random_sender = random_sender[0]
+	my_sender= random_sender #发件人邮箱账号，为了后面易于维护，所以写成了变量
 	my_user='715157026@qq.com' #收件人邮箱账号，为了后面易于维护，所以写成了变量
 	my_user2 = 'wangxinyuan_info@aliyun.com'
 	#file_path = ''
