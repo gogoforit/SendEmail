@@ -8,6 +8,10 @@ from email.mime.multipart import MIMEMultipart
 from email.header import Header
 
 def send_email(file_path,file_name,the_time):
+	#签到信息的班级
+	class_number = '1518028'
+
+
 	sender_list = ['wangxinyuan_sign@aliyun.com','wangxinyuan_sign1@aliyun.com','wangxinyuan_sign2@aliyun.com','wangxinyuan_sign3@aliyun.com','wangxinyuan_sign4@aliyun.com']
 	random_sender = random.sample(sender_list,1)
 	random_sender = random_sender[0]
@@ -17,7 +21,7 @@ def send_email(file_path,file_name,the_time):
 	my_user2 = 'wangxinyuan_info@aliyun.com'
 	#file_path = ''
 	#file_name = ''
-	title_name = '每日签到文件' + the_time 
+	title_name = '每日签到文件' + the_time + '-' + class_number
 
 	# 创建一个带附件的实例
 	message = MIMEMultipart()
