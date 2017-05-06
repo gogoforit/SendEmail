@@ -96,3 +96,9 @@ ENV/
 
 # mkdocs documentation
 /site
+
+#config for send email
+Config.py
+
+#other
+*.py.swp
