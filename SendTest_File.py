@@ -6,11 +6,11 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.header import Header
-
+import Config
 def send_email(file_path,file_name,the_time):
 	#签到信息的班级
-	class_number = '1518028'
-
+	class_number = Config.CLASS_NUMBER
+	password = Config.PASSWORD
 
 	sender_list = ['wangxinyuan_sign@aliyun.com','wangxinyuan_sign1@aliyun.com','wangxinyuan_sign2@aliyun.com','wangxinyuan_sign3@aliyun.com','wangxinyuan_sign4@aliyun.com']
 	random_sender = random.sample(sender_list,1)
@@ -52,7 +52,7 @@ def send_email(file_path,file_name,the_time):
 
 	try:
 	    server = smtplib.SMTP("smtp.aliyun.com", 25)  # 发件人邮箱中的SMTP服务器，端口是25
-	    server.login(my_sender, "wangxinyuan2017")
+	    server.login(my_sender, password)
 
 	    server.sendmail(my_sender, my_user, message.as_string())
 	    print("1邮件发送成功")
